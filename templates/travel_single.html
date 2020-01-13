@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <!-- Site Metas -->
-    <title>Cloapedia - Stylish Magazine Blog Template</title>
+    <title>Blog City</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -62,7 +62,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="logo">
-                            <a href={% url 'index' %}><img src="{% static 'images/logo.png' %}" alt=""></a>
+                            <a href={% url 'index' %}><img src="{% static 'images/blogcity1.png' %}" alt=""></a>
                         </div><!-- end logo -->
                     </div>
                 </div><!-- end row -->
@@ -113,7 +113,7 @@
                             <div class="blog-title-area">
                                 
 
-                                <span class="color-aqua"><a href="blog-category-01.html" title="">Lifestyle</a></span>
+                                <span class="color-aqua"><a href="blog-category-01.html" title="">{{record.category}}</a></span>
 
                                 <h3>{{ record.title }}</h3>
 
@@ -125,11 +125,12 @@
 
                                 
                             </div><!-- end title -->
-
+ 
                             <div class="single-post-media">
-                                <img src= class="img-fluid">
-                            </div><!-- end media -->
+                                <img src="{{ record.imgfile.url }}" class="float-left" width="340" alt="" class="img-fluid">
 
+                            </div><!-- end media -->
+                                                         
                             <div class="blog-content">  
                                 <div class="pp">
                                     
@@ -213,10 +214,10 @@
                                         {% for post in  posts %}
                                         <a href="single.html" class="list-group-item list-group-item-action flex-column align-items-start">
                                             <div class="w-100 justify-content-between">
-                                                <img src="{% static 'upload/blog_square_01.jpg' %}" alt="" class="img-fluid float-left">
+                                                <a href="{% url 'blogpost' pk=post.pk %}" > <img src="{{ post.imgfile.url }}" alt="" class="img-fluid float-left"> </a>
                                              </div> 
-                                                <div><h5 class="mb-1">{{ post.title}} </h5>
-                                                <small>{{post.author}}</small>
+                                                <div><h5 class="mb-1"><a href="{% url 'blogpost' pk=post.pk %}">{{ post.title}}</a> </h5>
+                                                <small><a href="{% url 'author' %}">{{post.author}}</a></small>
                                             </div>
                                             
                                         </a>
@@ -259,15 +260,8 @@
         <footer class="footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                        
-                    </div><!-- end col -->
-
-                    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                        
-                    </div><!-- end col -->
-
                     
+
                 </div><!-- end row -->
 
                 <hr class="invis1">
@@ -276,8 +270,8 @@
                     <div class="col-lg-8 offset-lg-2">
                         <div class="widget">
                             <div class="footer-text text-center">
-                                <a href="index.html"><img src="{% static 'images/flogo.png' %}" alt="" class="img-fluid"></a>
-                                <p>Cloapedia is a personal blog for handcrafted, cameramade photography content, fashion styles from independent creatives around the world.</p>
+                                <a href={% url 'index' %}><img src="{% static 'images/blogcity1.png' %}" alt="" class="img-fluid"></a>
+                                <p>Blog City.</p>
                                 <div class="social">
                                     <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>              
                                     <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>

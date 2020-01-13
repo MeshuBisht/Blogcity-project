@@ -1102,13 +1102,13 @@ div.tab button:hover {
 .blog-meta h4 {
     padding: 1rem 0 0.5rem;
     margin: 0;
-    font-size: 21px;
+    font-size: 19px;
 }
 
 .blog-meta.big-meta h4 {
     padding: 1rem 0 0.6rem;
     margin: 0;
-    font-size: 28px;
+    font-size: 19px;
 }
 
 .blog-meta.big-meta p {
@@ -1200,7 +1200,7 @@ hr.invis3 {
 }
 
 .small-box .shadow-desc h4 {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.3;
 }
 

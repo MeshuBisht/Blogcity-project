@@ -129,10 +129,10 @@
                                         {% for post in  posts %}
                                         <a href="single.html" class="list-group-item list-group-item-action flex-column align-items-start">
                                             <div class="w-100 justify-content-between">
-                                                <img src="{% static 'upload/blog_square_01.jpg' %}" alt="" class="img-fluid float-left">
+                                                <a href="{% url 'blogpost' pk=post.pk %}" > <img src="{{ post.imgfile.url }}" alt="" class="img-fluid float-left"> </a>
                                              </div> 
-                                                <div><h5 class="mb-1">{{ post.title}} </h5>
-                                                <small>{{post.author}}</small>
+                                                <div><h5 class="mb-1"><a href="{% url 'blogpost' pk=post.pk %}">{{ post.title}}</a> </h5>
+                                                <small><a href="{% url 'author' %}">{{post.author}}</a></small>
                                             </div>
                                             
                                         </a>
@@ -177,7 +177,7 @@
                                 <div class="col-lg-10 offset-lg-1">
                                     <div class="banner-spot clearfix">
                                         <div class="banner-img">
-                                            <img src="{% static 'upload/banner_01.jpg' %}" alt="" class="img-fluid">
+                                            <img src="{% static 'upload/ad11.jpeg' %}" alt="" class="img-fluid">
                                         </div><!-- end banner-img -->
                                     </div><!-- end banner -->
                                 </div><!-- end col -->
@@ -193,7 +193,7 @@
                                     <div class="blog-box">
                                        <div class="post-media">
                                             <a href="{% url 'blogpost' pk=post.pk %}" title="">
-                                                <img src="{% static 'upload/blog_02.jpg' %}" alt="" class="img-fluid">
+                                                <img src="{{ post.imgfile.url }}" alt="" class="img-fluid">
                                                 <div class="hovereffect">
                                                     <span></span>
                                                 </div><!-- end hover -->

@@ -113,7 +113,13 @@
                     {% for post in left %}
                     <div class="left-side">
                         <div class="masonry-box post-media">
-                             <img src="{% static 'upload/blog_masonry_01.jpg' %}" alt="" class="img-fluid">
+                             <div class="post-media">
+                             <a href="{% url 'blogpost' pk=post.pk %}"> <img src="{{ post.imgfile.url }}" class="img-fluid"> 
+                                        <div class="hovereffect">
+                                              <span></span>
+                                        </div><!-- end hover -->
+                             </a>
+                             </div>
                              <div class="shadoweffect">
                                 <div class="shadow-desc">
                                     <div class="blog-meta">
@@ -131,7 +137,7 @@
                         
                          {% for post in travel%}  
                         <div class="masonry-box small-box post-media">
-                             <img src="{% static 'upload/blog_masonry_03.jpg' %}" alt="" class="img-fluid">
+                             <a href="{% url 'blogpost' pk=post.pk %}"> <img src="{{ post.imgfile.url }}" class="img-fluid"> </a>
                              <div class="shadoweffect">
                                 <div class="shadow-desc">
                                     <div class="blog-meta">
@@ -140,15 +146,17 @@
                                     </div><!-- end meta -->
                                 </div><!-- end shadow-desc -->
                             </div><!-- end shadow -->
-                        </div><!-- end post-media -->
 
+                         </div><!-- end post-media -->
+                         <hr class="invis">
                         {% endfor %}
+
                     </div><!-- end left-side -->
-                    {% for post in right %}
+                    
                     <div class="right-side hidden-md-down">
-                        
+                        {% for post in right %}    
                         <div class="masonry-box post-media">
-                             <img src="{% static 'upload/blog_masonry_05.jpg' %}" alt="" class="img-fluid">
+                             <a href="{% url 'blogpost' pk=post.pk %}"> <img src="{{ post.imgfile.url }}" class="img-fluid"> </a>
                              <div class="shadoweffect">
                                 <div class="shadow-desc">
                                     <div class="blog-meta">
@@ -159,10 +167,12 @@
                                     </div><!-- end meta -->
                                 </div><!-- end shadow-desc -->
                              </div><!-- end shadow -->
-                        </div><!-- end post-media -->
-                        
-                    </div><!-- end right-side -->
-                     {% endfor %}
+                        </div>
+                        <hr class="invis"><!-- end post-media -->
+                        {% endfor %}   
+                     </div><!-- end right-side -->
+
+                     
                 </div><!-- end masonry -->
             </div>
         </section>
@@ -180,8 +190,7 @@
                                 {% for post in world %}
                                 <div class="blog-box">
                                     <div class="post-media">
-                                        <a href={% url 'single' %} title="">
-                                            <img src="{% static 'upload/blog_05.jpg' %}" alt="" class="img-fluid">
+                                        <a href="{% url 'blogpost' pk=post.pk %}"> <img src="{{ post.imgfile.url }}" class="img-fluid"> 
                                             <div class="hovereffect">
                                                 <span></span>
                                             </div><!-- end hover -->
@@ -213,8 +222,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 <div class="blog-box">
                                     <div class="post-media">
-                                        <a href={% url 'single' %} title="">
-                                            <img src="{% static 'upload/blog_01.jpg' %}" alt="" class="img-fluid">
+                                        <a href="{% url 'blogpost' pk=post.pk %}"> <img src="{{ post.imgfile.url }}" class="img-fluid"> 
                                             <div class="hovereffect">
                                                 <span></span>
                                             </div><!-- end hover -->
@@ -252,8 +260,7 @@
                             <div class="blog-box row">
                                 <div class="col-md-4">
                                     <div class="post-media">
-                                        <a href={% url 'single' %} title="">
-                                            <img src="{% static 'upload/blog_square_01.jpg' %}" alt="" class="img-fluid">
+                                        <a href="{% url 'blogpost' pk=post.pk %}"> <img src="{{ post.imgfile.url }}" class="img-fluid"> 
                                             <div class="hovereffect"></div>
                                         </a>
                                     </div><!-- end media -->
@@ -282,8 +289,7 @@
                             <div class="blog-box row">
                                 <div class="col-md-4">
                                     <div class="post-media">
-                                        <a href={% url 'single' %} title="">
-                                            <img src="{% static 'upload/blog_square_05.jpg' %}" alt="" class="img-fluid">
+                                        <a href="{% url 'blogpost' pk=post.pk %}"> <img src="{{ post.imgfile.url }}" class="img-fluid"> 
                                             <div class="hovereffect"></div>
                                         </a>
                                     </div><!-- end media -->
@@ -292,7 +298,7 @@
                                 <div class="blog-meta big-meta col-md-8">
                                     <h4><a href="{% url 'blogpost' pk=post.pk %}" title="">{{post.title}}</a></h4>
                                     
-                                    <small><a href="blog-category-01.html" title="">{{post.category}}</a></small>
+                                    <small><a href={% url 'sports'%} title="">{{post.category}}</a></small>
                                     <small>{{post.created_on}}</small>
                                     <small><a href={% url 'author'%} title="">{{post.author}}</a></small>
                                 </div><!-- end meta -->
@@ -315,8 +321,7 @@
                          {% for post in technology %}
                         <div class="blog-box">
                             <div class="post-media">
-                                <a href={% url 'single' %} title="">
-                                    <img src="{% static 'upload/blog_10.jpg' %}" alt="" class="img-fluid">
+                                <a href="{% url 'blogpost' pk=post.pk %}"> <img src="{{ post.imgfile.url }}" class="img-fluid"> 
                                     <div class="hovereffect">
                                         <span class="videohover"></span>
                                     </div><!-- end hover -->
@@ -340,8 +345,7 @@
                          {% for post in posts %}
                         <div class="blog-box">
                             <div class="post-media">
-                                <a href={% url 'single' %} title="">
-                                    <img src="{% static 'upload/blog_07.jpg' %}" alt="" class="img-fluid">
+                                <a href="{% url 'blogpost' pk=post.pk %}"> <img src="{{ post.imgfile.url }}" class="img-fluid"> </a>
                                     <div class="hovereffect">
                                         <span></span>
                                     </div><!-- end hover -->
